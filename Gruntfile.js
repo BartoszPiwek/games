@@ -10,6 +10,7 @@ Repository:     https://github.com/BartoszPiwek/FrontBox
 var 
 SETTINGS    = require('./grunt-settings/settings'),
 NEWER       = '';
+KEEPALIVE   = false;
 TASKS       = {
     watch: null,
 };
@@ -171,7 +172,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('up', () => {
         SETTINGS.version = 'prod';
-        NEWER = '';
+        KEEPALIVE = true;
         
         grunt.task.run([
             'init_server',
@@ -695,7 +696,7 @@ module.exports = function(grunt) {
                         target: 'http://localhost:8181',
                         appName: 'chrome',
                     },
-                    keepalive: true,
+                    keepalive: KEEPALIVE,
                 }
             },
         };

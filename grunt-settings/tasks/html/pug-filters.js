@@ -20,16 +20,16 @@ module.exports = (SETTINGS) => {
         //     return output;
         // },
 
-        filesDebug: () => {
+        printFilesLink: (path = '') => {
 
             let
             output = '';
 
-            fs.readdirSync(`./public/${SETTINGS.version}/debug`, { withFileTypes: true }).forEach(file => {
+            fs.readdirSync(`./public/${SETTINGS.version}/${path}`, { withFileTypes: true }).forEach(file => {
 
                 let name = file.slice(0, -5);
 
-                if ( name !== 'index' ) {
+                if ( name !== 'index' && file.endsWith(".html") ) {
                     output += `<a class="block mt-5 mb-5" href="./${name}.html">${name}</a>`; 
                 }
 
