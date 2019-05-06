@@ -1,0 +1,16 @@
+- var page_title = "Game: Snake"
+- var page_description = false
+- var page_keywords = false
+- var page_critical_css = false
+
+include includes/begin.pug
+
+main.page-content.relative.game.game--snake
+
+    h1.game__title
+        | Game: Snake
+	
+    canvas#canvas.game__content(width="608", height="607")
+
+include includes/scripts.pug
+include includes/end.pug
